@@ -1,0 +1,17 @@
+#!/bin/bash
+
+help() {
+  echo "Usage:"
+  echo "  zmicro cloc <args ...>"
+  echo ""
+}
+
+core() {
+  cloc "$@"
+}
+
+run() {
+  core "$@"
+}
+
+run "$@"

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+help() {
+  echo "Usage:"
+  echo "  zmicro package install cloc <args...>"
+  echo ""
+}
+
+core() {
+  if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    help
+    exit 0
+  fi
+
+  which cloc >>/dev/null 2>&1
+  if [ "$?" != "0" ]; then
+    pm install -y cloc
+  fi
+
+  log::success "install cloc success."
+}
+
+run() {
+  core $@
+}
+
+run $@
